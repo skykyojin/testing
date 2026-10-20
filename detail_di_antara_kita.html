@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pages. - Detail Buku</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style_detail.css">
+</head>
+<body>
+
+  <!-- NAVBAR UTAMA (SAMPING) -->
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="brand">
+        <i class="fa-solid fa-book-open"></i> pages.
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Beranda</a></li>
+        <li><a href="Library.html" class="nav-item"><i class="fa-solid fa-book-bookmark"></i> Perpustakaan</a></li>
+        <li><a href="profile.html" class="nav-item"><i class="fa-solid fa-user"></i> Profil</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-footer">
+      "Setiap buku adalah perjalanan ke dunia lain. ♡"
+    </div>
+  </aside>
+
+  <!-- KONTEN UTAMA -->
+  <div class="main-wrapper">
+    <header class="top-navbar">
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <button class="toggle-sidebar-btn" id="sidebarToggle" title="Buka/Tutup Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="javascript:history.back()" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+      </div>
+    </header>
+
+    <main class="content-container">
+      <!-- HEADER DESKRIPSI BUKU -->
+      <div class="detail-header">
+        <img src="gambar/cover_di Antara kita.jpe" alt="Cover Buku" class="detail-cover">
+        <div class="detail-meta">
+          <span class="genre-tag">Drama</span>
+          <h1 class="book-title">Di Antara Kita</h1>
+          <p class="book-author">Oleh <span>Nara Satria</span></p>
+          
+          <div class="stats-row">
+            <div class="stat-item">
+              <strong>8 / 24</strong>
+              <span>Bab Dibaca</span>
+            </div>
+            <div class="stat-item">
+              <strong>4.6</strong>
+              <span><i class="fa-solid fa-star" style="color: #f1c40f;"></i> Rating</span>
+            </div>
+            <div class="stat-item">
+              <strong>9.8k</strong>
+              <span>Pembaca</span>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <a href="baca.html" class="btn-primary"><i class="fa-solid fa-book-open"></i> Lanjut Membaca</a>
+            <button class="btn-secondary"><i class="fa-regular fa-bookmark"></i> Simpan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SINOPSIS -->
+      <section class="detail-section">
+        <h2>Sinopsis</h2>
+        <p class="synopsis-text">
+          Di antara kata-kata yang tak terucap dan perasaan yang tersembunyi, dua insan bertemu di titik yang tidak mereka duga. Di Antara Kita mengisahkan how love bisa tumbuh dari keheningan, dan bagaimana kadang yang terlihat paling dekat justru yang paling sulit dipahami.
+        </p>
+      </section>
+
+      <!-- DAFTAR BAB -->
+      <section class="detail-section">
+        <h2>Daftar Bab</h2>
+        <ul class="chapter-list">
+          <li><a href="#"><span>Bab 1: Pertemuan yang Tak Terduga</span> <i class="fa-solid fa-circle-check completed-icon"></i></a></li>
+          <li><a href="#"><span>Bab 2: Suara di Balik Pesan</span> <i class="fa-solid fa-circle-check completed-icon"></i></a></li>
+          <li><a href="#"><span>Bab 3: Rindu yang Tersembunyi</span> <i class="fa-solid fa-chevron-right arrow"></i></a></li>
+          <li><a href="#"><span>Bab 4: Di Antara Kata dan Diam</span> <i class="fa-solid fa-chevron-right arrow"></i></a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script_beranda.js"></script>
+</body>
+</html>

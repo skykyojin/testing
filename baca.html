@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membaca - Langit yang Sama</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style_baca.css">
+</head>
+<body>
+
+  <div class="read-wrapper">
+    <!-- HEADER NAVIGASI -->
+    <header class="reader-header">
+      <a href="javascript:history.back()" class="back-link">
+        <i class="fa-solid fa-chevron-left"></i> Kembali
+      </a>
+      <div class="header-tools">
+        <button class="tool-btn" title="Pengaturan Teks">Aa</button>
+        <button class="tool-btn" title="Mode Gelap"><i class="fa-regular fa-moon"></i></button>
+        <button class="tool-btn" title="Menu Lainnya"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+    </header>
+
+    <!-- PROGRESS BAR (FIXED TOP) -->
+    <div class="reading-progress-bar">
+      <div class="reading-progress-fill" id="readingProgressFill"></div>
+    </div>
+
+    <!-- METADATA & PROGRESS BUKU -->
+    <section class="book-meta-section">
+      <h1 class="book-title">Langit yang Sama</h1>
+      <p class="book-author">Arkana Putra</p>
+      
+      <div class="progress-info">
+        <span id="chapterProgress">Bab 12 dari 28</span>
+        <span id="percentProgress">43%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="bookProgressFill" style="width: 43%;"></div>
+      </div>
+    </section>
+
+    <!-- AREA KONTEN BACAAN -->
+    <main class="reader-container">
+      <article class="reader-content">
+        <p>
+          Langit sore itu kembali memerah, seolah tahu bahwa hari ini bukan hari yang mudah bagiku. Aku berdiri di balkon, menatap jauh ke arah kota yang mulai diselimuti cahaya jingga. Angin lembut membawa aroma hujan yang belum turun, tapi sudah terasa di udara.
+        </p>
+
+        <p>
+          “Kamu masih di sini?” suara itu akhirnya terdengar, memecah lamunanku.
+        </p>
+
+        <p>
+          Aku menoleh, dan di sana dia—sama seperti dulu, dengan senyum yang entah kenapa selalu bisa membuatku merasa tenang, meski dunia di sekitar kami tidak pernah benar-benar baik.
+        </p>
+
+        <p>
+          “Iya,” jawabku pelan. “Aku masih di sini.”
+        </p>
+
+        <p>
+          Aku melangkah lebih dekat, merasakan dinginnya besi pengait railing yang menyambut telapak tanganku. Di bawah kami, kota bergerak seperti utuh yang penuh warna—lampu-lampu lalu lintas yang berarak lambat, suara klakson yang bersembunyi di antara hiruk pikuk, dan suara tawa anak-anak yang masih bisa menembus kesunyian malam.
+        </p>
+
+        <p>
+          Dia menatap ke arah yang sama, tapi matanya kosong. Tidak melihat kota. Tidak melihat langit yang memerah. Dia sedang memikirkan sesuatu yang tidak ingin dia ceritakan.
+        </p>
+
+        <p>
+          “Kau tahu,” katanya pelan, “setiap kali aku di sini, aku selalu ingat hari pertama kita bertemu.”
+        </p>
+
+        <p>
+          Aku tersenyum kecil. Hari itu juga sore. Juga hujan yang belum turun. Aku baru pindah ke kota ini, tidak punya teman, tidak punya tujuan yang jelas. Hanya membawa koper berwarna cokelat dan selembar tiket pulang yang belum kupakai.
+        </p>
+
+        <!-- DEKORASI PEMBATAS -->
+        <div class="chapter-divider">
+          <span>—</span>
+          <i class="fa-solid fa-sparkles">✦</i>
+          <span>—</span>
+        </div>
+
+        <p>
+          “Aku juga,” jawabku.
+        </p>
+
+        <p>
+          Kami berdiri diam untuk beberapa saat, membiarkan angin membicarakan hal-hal yang kata-kata tidak mampu. Di tengah kota yang terus bergerak, di antara keramaian yang tidak pernah benar-benar tenang, ada momen kecil seperti ini—di mana dua orang hanya perlu berdiri dan bernapas.
+        </p>
+
+        <p>
+          “Aku harus pergi,” katanya akhirnya.
+        </p>
+
+        <p>
+          Aku menatapnya, ingin bertanya mengapa, tapi menahan diri. Kadang, pertanyaan tidak membutuhkan jawaban. Cukup tahu bahwa dia ada—di sini, di antara langit yang sama, di antara cerita yang belum selesai.
+        </p>
+
+        <p>
+          “Aku tahu,” jawabku.
+        </p>
+
+        <p>
+          Dia mengangguk, lalu pergi. Aku tetap di balkon, menatap langit yang semakin kelabu. Di bawah langit yang sama, cerita-cerita terus berlanjut—tidak peduli seberapa keras angin menerpa, tidak peduli seberapa gelap malam yang tiba.
+        </p>
+
+        <p>
+          Karena di bawah langit yang sama, tidak ada yang benar-benar hilang.
+        </p>
+      </article>
+    </main>
+
+    <!-- FOOTER NAVIGASI BAB -->
+    <footer class="reader-footer">
+      <a href="#" class="nav-chapter-btn"><i class="fa-solid fa-arrow-left"></i> Bab Sebelumnya</a>
+      <a href="#" class="nav-chapter-btn">Bab Berikutnya <i class="fa-solid fa-arrow-right"></i></a>
+    </footer>
+  </div>
+
+  <script src="js/script_baca.js"></script>
+</body>
+</html>

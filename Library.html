@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pages. - Perpustakaan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style_library.css">
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+  // Ambil elemen elemen yang dibutuhkan
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+
+  // Jalankan fitur klik toggle jika elemennya ada
+  if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', function () {
+      sidebar.classList.toggle('collapsed');
+    });
+  }
+
+  // Sub-navigasi (Terbaru / Populer) di Beranda
+  const subnavLinks = document.querySelectorAll('.subnav-link');
+  subnavLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      subnavLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+    </script>
+
+  <!-- NAVBAR UTAMA (SAMPING) -->
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="brand">
+        <i class="fa-solid fa-book-open"></i> pages.
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Beranda</a></li>
+        <li><a href="Library.html" class="nav-item active"><i class="fa-solid fa-book-bookmark"></i> Perpustakaan</a></li>
+        <li><a href="profile.html" class="nav-item"><i class="fa-solid fa-user"></i> Profil</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-footer">
+      "Setiap buku adalah perjalanan ke dunia lain. ♡"
+    </div>
+  </aside>
+
+  <!-- KONTEN UTAMA -->
+  <div class="main-wrapper">
+    <!-- HEADER BAR ATAS -->
+    <header class="top-navbar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="toggle-sidebar-btn" id="sidebarToggle" title="Buka/Tutup Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h1 class="page-title">Perpustakaan</h1>
+      </div>
+    </header>
+
+    <main class="content-container">
+      <!-- SUB-NAVBAR / TAB MENU -->
+      <ul class="library-tabs">
+        <li><a href="#" class="tab-link active">Buku Saya</a></li>
+        <li><a href="#" class="tab-link">Favorit</a></li>
+        <li><a href="#" class="tab-link">Riwayat</a></li>
+      </ul>
+
+      <!-- SEARCH BAR & DROPDOWN FILTER -->
+      <div class="filter-row">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Cari di perpustakaan...">
+        </div>
+        <select class="dropdown-filter">
+          <option>Semua</option>
+          <option>Sedang Dibaca</option>
+          <option>Selesai</option>
+        </select>
+      </div>
+
+      <!-- DAFTAR BUKU (LIST VIEW) -->
+      <div class="library-list">
+        
+        <!-- BUKU 1 -->
+        <div class="book-item">
+          <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400" alt="Cover Buku" class="book-cover">
+          <div class="book-info">
+            <h3 class="book-title">Langit yang Sama</h3>
+            <p class="book-author">Arkana Putra</p>
+            <span class="progress-text">12 / 28 bab</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 43%;"></div>
+            </div>
+          </div>
+          <div class="book-actions">
+            <button class="action-btn" title="Opsi"><i class="fa-solid fa-ellipsis"></i></button>
+            <button class="action-btn" title="Simpan"><i class="fa-solid fa-bookmark"></i></button>
+          </div>
+        </div>
+
+        <!-- BUKU 2 -->
+        <div class="book-item">
+          <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400" alt="Cover Buku" class="book-cover">
+          <div class="book-info">
+            <h3 class="book-title">Di Antara Kita</h3>
+            <p class="book-author">Nara Satria</p>
+            <span class="progress-text">5 / 23 bab</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 21%;"></div>
+            </div>
+          </div>
+          <div class="book-actions">
+            <button class="action-btn" title="Opsi"><i class="fa-solid fa-ellipsis"></i></button>
+            <button class="action-btn" title="Simpan"><i class="fa-solid fa-bookmark"></i></button>
+          </div>
+        </div>
+
+        <!-- BUKU 3 -->
+        <div class="book-item">
+          <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400" alt="Cover Buku" class="book-cover">
+          <div class="book-info">
+            <h3 class="book-title">Sebelum Langit Patah</h3>
+            <p class="book-author">Laras A.</p>
+            <span class="progress-text">0 / 19 bab</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="book-actions">
+            <button class="action-btn" title="Opsi"><i class="fa-solid fa-ellipsis"></i></button>
+            <button class="action-btn" title="Simpan"><i class="fa-solid fa-bookmark"></i></button>
+          </div>
+        </div>
+
+        <!-- BUKU 4 -->
+        <div class="book-item">
+          <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe?q=80&w=400" alt="Cover Buku" class="book-cover">
+          <div class="book-info">
+            <h3 class="book-title">Kamar 305</h3>
+            <p class="book-author">Raka Damar</p>
+            <span class="progress-text">8 / 16 bab</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 50%;"></div>
+            </div>
+          </div>
+          <div class="book-actions">
+            <button class="action-btn" title="Opsi"><i class="fa-solid fa-ellipsis"></i></button>
+            <button class="action-btn" title="Simpan"><i class="fa-solid fa-bookmark"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/script_beranda.js"></script>
+  <script>
+    requireAuth();
+  </script>
+</body>
+</html>

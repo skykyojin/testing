@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pages. - Profil</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style_profile.css">
+</head>
+<body>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  // Ambil elemen elemen yang dibutuhkan
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+
+  // Jalankan fitur klik toggle jika elemennya ada
+  if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', function () {
+      sidebar.classList.toggle('collapsed');
+    });
+  }
+
+  // Sub-navigasi (Terbaru / Populer) di Beranda
+  const subnavLinks = document.querySelectorAll('.subnav-link');
+  subnavLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      subnavLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+</script>
+
+  <!-- NAVBAR UTAMA (SAMPING) -->
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="brand">
+        <i class="fa-solid fa-book-open"></i> pages.
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i> Beranda</a></li>
+        <li><a href="Library.html" class="nav-item"><i class="fa-solid fa-book-bookmark"></i> Rak Saya</a></li>
+        <li><a href="profile.html" class="nav-item active"><i class="fa-solid fa-user"></i> Profil</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-footer">
+      "Setiap buku adalah perjalanan ke dunia lain. ♡"
+    </div>
+  </aside>
+
+  <!-- KONTEN UTAMA -->
+  <div class="main-wrapper">
+    <header class="top-navbar">
+      <div style="display: flex; align-items: center;">
+        <button class="toggle-sidebar-btn" id="sidebarToggle" title="Buka/Tutup Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h2 style="font-family: 'Merriweather', serif; font-size: 20px;">Profil Saya</h2>
+      </div>
+    </header>
+
+    <main class="content-container">
+      <div class="profile-card">
+        <!-- FOTO & BIOGRAFI -->
+        <div class="user-info">
+          <img src="gambar/images.jpe" alt="Avatar" class="profile-avatar">
+          <h2 id="profileUsername">-</h2>
+          <p class="bio" id="profileEmail">-</p>
+        </div>
+
+        <!-- STATISTIK (3 KOLOM) -->
+        <div class="stats-row">
+          <div class="stat-item">
+            <h3>12</h3>
+            <p>Buku Selesai</p>
+          </div>
+          <div class="stat-item">
+            <h3>4</h3>
+            <p>Buku Dibaca</p>
+          </div>
+          <div class="stat-item">
+            <h3>2</h3>
+            <p>Daftar Favorit</p>
+          </div>
+        </div>
+
+        <!-- DAFTAR MENU -->
+        <ul class="profile-menu">
+          <li>
+            <a href="Library.html">
+              <i class="fa-solid fa-book-bookmark"></i>
+              <span>Rak Saya</span>
+              <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Keluar</span>
+              <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+          </li>
+        </ul>
+
+        <!-- FOOTER PESAN DESAIN -->
+        <div class="profile-footer">
+          ~ sampai jumpa di cerita berikutnya ♡
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/script_beranda.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      const user = await requireAuth();
+
+      try {
+        const response = await fetch('backend/get_profile.php');
+        const result = await response.json();
+
+        if (result.success && result.user) {
+          document.getElementById('profileUsername').textContent = result.user.username || '-';
+          document.getElementById('profileEmail').textContent = result.user.email || '-';
+          
+          const statsItems = document.querySelectorAll('.stat-item h3');
+          if (statsItems.length >= 3) {
+            statsItems[0].textContent = result.user.books_finished ?? 0;
+            statsItems[1].textContent = result.user.books_reading ?? 0;
+            statsItems[2].textContent = result.user.favorite_lists ?? 0;
+          }
+        }
+      } catch (error) {
+        console.error('Gagal memuat profil:', error);
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', async function(e) {
+      e.preventDefault();
+      if (confirm('Yakin ingin keluar?')) {
+        try {
+          await fetch('backend/logout.php', { method: 'POST' });
+          window.location.href = 'login.html';
+        } catch (error) {
+          alert('Gagal logout: ' + error.message);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

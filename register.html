@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pages. - Daftar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style_Login.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <i class="fa-solid fa-book-open"></i>
+        <h1>Buat Akun Pages.</h1>
+        <p>Mulai perjalanan membacamu sekarang ♡</p>
+      </div>
+
+      <form id="registerForm" class="auth-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="username" name="username" placeholder="Pilih username" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Buat password" required minlength="6">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Konfirmasi Password</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Ulangi password" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth" id="registerBtn">
+          <span>Daftar</span>
+        </button>
+
+        <div class="auth-footer">
+          <p>Sudah punya akun? <a href="login.html">Masuk di sini</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const btn = document.getElementById('registerBtn');
+      const originalText = btn.innerHTML;
+
+      if (password !== confirmPassword) {
+        alert('Password dan konfirmasi password tidak cocok');
+        return;
+      }
+
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Memproses...';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('backend/register.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          alert('Registrasi berhasil! Silakan login.');
+          window.location.href = 'login.html';
+        } else {
+          alert(result.message);
+        }
+      } catch (error) {
+        alert('Terjadi kesalahan: ' + error.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

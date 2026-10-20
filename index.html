@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pages. - Beranda</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style_Beranda.css">
+</head>
+<body>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  // Ambil elemen elemen yang dibutuhkan
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+
+  // Jalankan fitur klik toggle jika elemennya ada
+  if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', function () {
+      sidebar.classList.toggle('collapsed');
+    });
+  }
+
+  // Sub-navigasi (Terbaru / Populer) di Beranda
+  const subnavLinks = document.querySelectorAll('.subnav-link');
+  subnavLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      subnavLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+</script>
+
+  <!-- NAVBAR UTAMA (SAMPING) -->
+  <aside class="sidebar" id="sidebar">
+    <div>
+      <div class="brand">
+        <i class="fa-solid fa-book-open"></i> pages.
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-item active"><i class="fa-solid fa-house"></i> Beranda</a></li>
+        <li><a href="Library.html" class="nav-item"><i class="fa-solid fa-book-bookmark"></i> Rak Saya</a></li>
+        <li><a href="profile.html" class="nav-item"><i class="fa-solid fa-user"></i> Profil</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-footer">
+      "Setiap buku adalah perjalanan ke dunia lain. ♡"
+    </div>
+  </aside>
+
+  <!-- KONTEN UTAMA -->
+  <div class="main-wrapper">
+    <!-- NAVBAR KHUSUS BERANDA (ATAS) -->
+    <header class="top-navbar">
+      <div style="display: flex; align-items: center;">
+        <button class="toggle-sidebar-btn" id="sidebarToggle" title="Buka/Tutup Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="top-subnav">
+          <li><a href="#" class="subnav-link active">Terbaru</a></li>
+          <li><a href="#" class="subnav-link">Populer</a></li>
+        </ul>
+      </div>
+
+      <div class="top-actions">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Cari judul, penulis, atau genre...">
+        </div>
+        <a href="profile.html">
+          <img src="gambar/images.jpe" alt="Avatar" class="user-avatar">
+        </a>
+      </div>
+    </header>
+
+    <main class="content-container">
+      <div class="hero-banner">
+        <h1>Buku bagus, selalu punya cara untuk menemani.</h1>
+        <p>Temukan cerita yang sesuai dengan suasana hatimu hari ini.</p>
+        <button class="btn-explore">Jelajahi Sekarang &rarr;</button>
+      </div>
+
+      <div class="section-title">
+        <h2>Untuk Kamu</h2>
+        <a href="#">Lihat Semua &rarr;</a>
+      </div>
+
+      <div class="books-grid" id="booksGrid">
+        <div class="book-card" data-genre="Romance" onclick="window.location.href='detail.html'">
+          <i class="fa-regular fa-heart like-btn"></i>
+          <img src="gambar/cover_langit yang sama.jpg" alt="Sampul Buku" class="book-cover">
+          <div class="book-title">Langit yang Sama</div>
+          <div class="book-author">Arkana Putra</div>
+          <span class="genre-tag">Romance</span>
+        </div>
+        <div class="book-card" data-genre="Drama" onclick="window.location.href='detail_di_antara_kita.html'">
+          <i class="fa-regular fa-heart like-btn"></i>
+          <img src="gambar/cover_di Antara kita.jpe" alt="Sampul Buku" class="book-cover">
+          <div class="book-title">Di Antara Kita</div>
+          <div class="book-author">Nara Satria</div>
+          <span class="genre-tag">Drama</span>
+        </div>
+        <div class="book-card" data-genre="Romance" onclick="window.location.href='detail_sebelum_langit_patah.html'">
+          <i class="fa-regular fa-heart like-btn"></i>
+          <img src="gambar/cover_langit yang patah.jpe" alt="Sampul Buku" class="book-cover">
+          <div class="book-title">Sebelum Langit Patah</div>
+          <div class="book-author">Laras A.</div>
+          <span class="genre-tag">Romance</span>
+        </div>
+        <div class="book-card" data-genre="Mystery" onclick="window.location.href='detail_kamar_305.html'">
+          <i class="fa-regular fa-heart like-btn"></i>
+          <img src="gambar/cover_kamar 305.jpg" alt="Sampul Buku" class="book-cover">
+          <div class="book-title">Kamar 305</div>
+          <div class="book-author">Raka Damar</div>
+          <span class="genre-tag">Mystery</span>
+        </div>
+        <div class="book-card" data-genre="Slice of Life" onclick="window.location.href='detail_pulang.html'">
+          <i class="fa-regular fa-heart like-btn"></i>
+          <img src="gambar/cover_pulang.jpeg" alt="Sampul Buku" class="book-cover">
+          <div class="book-title">pulang</div>
+          <div class="book-author">Tara Adhitya</div>
+          <span class="genre-tag">slice of life</span>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <h2>Genre Populer</h2>
+      </div>
+      <div class="genre-list">
+        <button class="genre-chip" data-filter="all">Semua</button>
+        <button class="genre-chip" data-filter="Romance">Romance</button>
+        <button class="genre-chip" data-filter="Drama">Drama</button>
+        <button class="genre-chip" data-filter="Fantasy">Fantasy</button>
+        <button class="genre-chip" data-filter="Mystery">Mystery</button>
+        <button class="genre-chip" data-filter="Slice of Life">Slice of Life</button>
+        <button class="genre-chip" data-filter="Action">Action</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/script_beranda.js"></script>
+</body>
+</html>
